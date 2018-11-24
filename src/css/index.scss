@@ -1,1 +1,10 @@
 @import "base/reset";
+@import "base/variables";
+
+@import "components/navbar";
+@import "components/todo";
+
+@import "sections/projects";
+
+@import "layout/grid"; 
+@import "layout/container";

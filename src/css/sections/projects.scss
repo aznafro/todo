@@ -1,0 +1,62 @@
+[class^="projects__"] {
+
+	.project {
+
+		&__name {
+			font-size: $project-name-size;
+		}
+
+		&__icon-face {
+			background-color: white;
+			margin: 0 auto;
+			text-align: center;
+
+			i {
+				padding: $v-icon-padding $h-icon-padding;
+				border-radius: 20px;
+				background-color: tomato;
+				color: white;
+				margin-bottom: 5px;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&__list-face {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 0;
+			height: 0;
+			opacity: 0;
+			z-index: -1;
+			border: 1px solid blue;
+			background-color: white;
+			transition: 320ms;
+		}
+	}
+
+	.show-list {
+		opacity: 1;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.projects__icons {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: $v-gutter-width $h-gutter-width;
+	z-index: 1;
+	transition: .5s;
+}
+
+.fade {
+	opacity: 0;
+}

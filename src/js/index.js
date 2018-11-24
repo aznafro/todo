@@ -1,3 +1,8 @@
+import home from "./components/home.js";
+
+
 (function() {
-	document.body.innerHTML = "<h1>HelloTODO!</h1>";
+	document.body.innerHTML += "<div class=\"container\"></div>";
+	
+	home();
 })();

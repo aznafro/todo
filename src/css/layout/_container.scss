@@ -1,0 +1,9 @@
+.container {
+	height: 100%;
+}
+
+.projects-container {
+	position: relative;
+	height: calc(100% - #{$navbar-height});
+	padding: $v-gutter-width $h-gutter-width;
+}
