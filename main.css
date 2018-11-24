@@ -21,6 +21,13 @@ ul {
 nav {
   background-color: crimson;
   color: white;
+  z-index: 2;
+}
+nav .logo {
+  position: absolute;
+  padding-top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-list {
@@ -30,7 +37,7 @@ nav {
   padding: 5px 15px;
 }
 
-.fa-arrow-left {
+.back {
   transition: 300ms;
 }
 
@@ -43,7 +50,7 @@ nav {
 
 .menu-list {
   position: absolute;
-  top: 38px;
+  top: 0;
   left: 100%;
   width: 35%;
   height: 100%;
@@ -53,6 +60,18 @@ nav {
 }
 .menu-list .nav-item {
   border-bottom: 1px solid white;
+}
+
+.toggle-box-toggled {
+  position: relative;
+  width: 30px;
+  height: 18px;
+}
+
+.toggle-box-toggled::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .menu-toggle {
@@ -70,6 +89,14 @@ nav {
   transition: 450ms cubic-bezier(0.55, 0.03, 0.24, 1.41);
 }
 
+.menu-toggle-toggled {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
 .top-spin {
   transform: translateY(6px) rotate(225deg);
 }
@@ -78,19 +105,23 @@ nav {
   transform: translateY(-5px) rotate(-225deg);
 }
 
-.hidden {
-  display: none;
-}
-
-.slide-in {
-  left: 65%;
-}
-
-@media only screen and (min-width: 768px) {
-  .back {
-    display: none;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@media only screen and (min-width: 768px) {
   .menu-toggle {
     display: none;
   }
@@ -109,6 +140,21 @@ nav {
   border-bottom: 1px solid white;
 }
 
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (min-width: 768px) {
+  .screen {
+    display: none;
+  }
+}
 [class^=projects__] .project__name {
   font-size: 13px;
 }
@@ -157,10 +203,6 @@ nav {
   transition: 0.5s;
 }
 
-.fade {
-  opacity: 0;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -186,13 +228,33 @@ nav {
 }
 
 .container {
+  position: relative;
+  left: 0;
   height: 100%;
+  transition: 350ms;
 }
 
 .projects-container {
   position: relative;
   height: calc(100% - 38px);
   padding: 20px 15px;
+}
+
+.slide-over {
+  left: -35%;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    left: 0;
+  }
+}
+.hidden {
+  display: none;
+}
+
+.fade {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=main.css.map */
