@@ -1,6 +1,14 @@
 nav {
 	background-color: crimson;
 	color: white;
+	z-index: 2;
+
+	.logo {
+		position: absolute;
+		padding-top: 6px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 .nav-list {
@@ -11,8 +19,8 @@ nav {
 	padding: 5px 15px;
 }
 
-.fa-arrow-left {
-	transition: 300ms;
+.back {
+	transition: $back-transition;
 }
 
 .nav-item {
@@ -25,7 +33,7 @@ nav {
 
 .menu-list {
 	position: absolute;
-	top: $navbar-height;
+	top: 0;
 	left: 100%;
 	width: 35%;
 	height: 100%;
@@ -36,6 +44,18 @@ nav {
 	.nav-item {
 		border-bottom: 1px solid white;
 	}
+}
+
+.toggle-box-toggled {
+	position: relative;
+	width: 30px;
+	height: 18px;
+}
+
+.toggle-box-toggled::after {
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .menu-toggle {
@@ -54,6 +74,14 @@ nav {
 	}
 }
 
+.menu-toggle-toggled {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+}
+
 .top-spin {
 	transform: translateY(6px) rotate(225deg);
 }
@@ -62,19 +90,18 @@ nav {
 	transform: translateY(-5px) rotate(-225deg);	
 }
 
-.hidden {
-	display: none;
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
-.slide-in {
-	left: 65%;
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
 }
+
 
 @media only screen and (min-width: 768px) {
-	.back {
-		display: none;
-	}
-
 	.menu-toggle {
 		display: none;
 	}

@@ -1,9 +1,22 @@
 .container {
+	position: relative;
+	left: 0;
 	height: 100%;
+	transition: 350ms;
 }
 
 .projects-container {
 	position: relative;
 	height: calc(100% - #{$navbar-height});
 	padding: $v-gutter-width $h-gutter-width;
+}
+
+.slide-over {
+	left: $container-slide-length;
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		left: 0;
+	}
 }

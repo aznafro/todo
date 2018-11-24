@@ -1,13 +1,19 @@
 import { createIconFace, createListFace } from "./project.js";
 
+function initScreen() {
+	let screen = document.createElement("div");
+	screen.classList.add("screen");
+	screen.classList.add("hidden");
+	document.querySelector(".container").appendChild(screen);
+}
  
 function initTopBar() {
 	let nav = document.createElement("nav");
 	
-	nav.innerHTML = "<ul class=\"nav-list\">" +
-				        "<li class=\"nav-item back\"><i class=\"fas fa-arrow-left fade\"></i></li>" +
-				        "<li class=\"nav-item logo\">Get 'er Done</li>" +
-				        "<li class=\"nav-item\">" +
+	nav.innerHTML = "<h1 class=\"logo\">Get 'er Done</h1>" +
+					"<ul class=\"nav-list\">" +
+				        "<li class=\"nav-item back fade\"><i class=\"fas fa-arrow-left\"></i></li>" +
+				        "<li class=\"nav-item toggle-box\">" +
 				        	"<div class=\"menu-toggle\">" +
 				        		"<div class=\"menu-toggle__bar top\"></div>" +
 				        		"<div class=\"menu-toggle__bar mid\"></div>" +
@@ -21,22 +27,34 @@ function initTopBar() {
 					"</ul>";
 
 	document.querySelector(".container").appendChild(nav);
-	nav.querySelector(".fa-arrow-left").addEventListener("click", function() {
+	nav.querySelector(".back").addEventListener("click", function() {
 		document.querySelector(".projects__icons").classList.remove("fade");
 		document.querySelector(".show-list").classList.remove("show-list");
+		this.style.animation = "300ms fadeOut linear forwards";
 		this.classList.add("fade");
 	});
 
+	let toggleBox = nav.querySelector(".toggle-box");
 	let menuToggle = nav.querySelector(".menu-toggle");
 	let menuList = nav.querySelector(".menu-list");
 	let top = nav.querySelector(".top");
 	let mid = nav.querySelector(".mid");
 	let bot = nav.querySelector(".bot");
-	menuToggle.addEventListener("click", function() {
+	toggleBox.addEventListener("click", function() {
+		// toggle animation
 		top.classList.toggle("top-spin");
 		mid.classList.toggle("fade");
 		bot.classList.toggle("bot-spin");
-		menuList.classList.toggle("slide-in");
+
+		// show sreen
+		document.querySelector(".screen").classList.toggle("hidden");
+
+		// change css of toggle button
+		this.classList.toggle("toggle-box-toggled");
+		menuToggle.classList.toggle("menu-toggle-toggled");
+
+		// slide everything over
+		document.querySelector(".container").classList.toggle("slide-over");
 	});
 }
 
@@ -107,7 +125,8 @@ function initProjects() {
 		iconElement.addEventListener("click", function() {
 			iconsContainer.classList.add("fade");
 			listElement.classList.add("show-list");
-			document.querySelector(".fa-arrow-left").classList.remove("fade");
+			document.querySelector(".back").classList.remove("fade");
+			document.querySelector(".back").style.animation = "fadeIn 300ms linear forwards";
 		});
 
 		iconCol.appendChild(iconElement);
@@ -127,6 +146,9 @@ function initProjects() {
 }
 
 function home() {
+	// init screen
+	initScreen();
+
 	// init the top bar
 	initTopBar();
 
