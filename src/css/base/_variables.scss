@@ -1,13 +1,17 @@
+// grid gutter
 $h-gutter-width: 15px;
 $v-gutter-width: 20px;
 
+// navbar
 $navbar-height: 38px;
+$menu-length: 200px;
 
+// projects related
 $v-icon-padding: 20px;
 $h-icon-padding: 25px;
 
 $project-name-size: 13px;
 
-$menu-length: 200px;
-
-$back-transition: 300ms;
+// transition timers
+$transition-short: 300ms;
+$transition-long: 450ms;

@@ -24,19 +24,25 @@ function createIconFace(name, icon) {
 
 function createListFace(name, todos) {
 	let listFace = document.createElement("div");
+	let projectName = document.createElement("h1");
 	let list = document.createElement("ul");
 
 	listFace.classList.add("project__list-face");
+	projectName.classList.add("project__name");
+	list.classList.add("project__list");
+
+	projectName.textContent = name;
 
 	// a todo will have more things than this, but this is the gist of it for now
 	todos.forEach(function(todo) {
 		let listItem = document.createElement("li");
 
-		listItem.classList.add("todo__list-item");
+		listItem.classList.add("project__list--item");
 		listItem.textContent = todo.name;
 		list.appendChild(listItem);
 	});
 
+	listFace.appendChild(projectName);
 	listFace.appendChild(list);
 	return listFace;
 }

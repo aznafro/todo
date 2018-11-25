@@ -1,4 +1,4 @@
-import home from "./components/home.js";
+import home from "./sections/home.js";
 
 
 (function() {
