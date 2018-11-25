@@ -52,7 +52,7 @@ nav .logo {
   position: absolute;
   top: 0;
   left: 100%;
-  width: 35%;
+  width: 200px;
   height: 100%;
   background-color: crimson;
   z-index: 2;
@@ -213,6 +213,9 @@ nav .logo {
 .row [class^=col-] {
   padding: 20px 15px;
 }
+.row .col-1-2 {
+  width: calc(100% / 2);
+}
 .row .col-1-3 {
   width: calc(100% / 3);
 }
@@ -241,7 +244,31 @@ nav .logo {
 }
 
 .slide-over {
-  left: -35%;
+  left: -200px;
+}
+
+.new-project-container,
+.choose-icon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.new-project-container {
+  padding: 20px;
+  background: tomato;
+}
+
+.choose-icon-container {
+  padding: 15px;
+  background: steelblue;
+  display: flex;
+  flex-wrap: wrap;
+}
+.choose-icon-container .icon {
+  font-size: 24px;
+  color: white;
 }
 
 @media only screen and (min-width: 768px) {
@@ -255,6 +282,10 @@ nav .logo {
 
 .fade {
   visibility: hidden;
+}
+
+.bring-up {
+  z-index: 10;
 }
 
 /*# sourceMappingURL=main.css.map */
