@@ -12,7 +12,45 @@
 }
 
 .slide-over {
-	left: $container-slide-length;
+	left: -$menu-length;
+}
+
+.new-project-container,
+.choose-icon-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	transition: 200ms;
+}
+
+.new-project-container {
+	padding: 20px;
+	background: tomato;
+}
+
+.choose-icon-container {
+	padding: 15px;
+	background: steelblue;
+
+	display: flex;
+	flex-wrap: wrap;
+
+	.choose-icon__header {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.choose-icon__box {
+		overflow: scroll;
+		padding: 10px;
+	}
+
+	.icon {
+		font-size: 24px;
+		color: white;
+	}
 }
 
 @media only screen and (min-width: 768px) {

@@ -5,11 +5,13 @@
 	overflow: hidden;
 
 	margin: 0 auto;
-	// margin-left: -$h-gutter-width;
-	// margin-right: -$h-gutter-width;
 
 	[class^="col-"] {
 		padding: $v-gutter-width $h-gutter-width;
+	}
+
+	.col-1-2 {
+		width: calc(100% / 2);
 	}
 
 	.col-1-3 {
