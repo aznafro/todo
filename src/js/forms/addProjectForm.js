@@ -1,13 +1,9 @@
 import { addNewProject } from "../sections/projects.js";
 
-function hide(element) {
-	element.classList.remove("bring-up");
-	element.classList.add("fade");
-}
-
 function closeNewProject() {
 	let newProjectContainer = document.querySelector(".new-project-container");
-	hide(newProjectContainer);
+
+	newProjectContainer.style.animation = "300ms hideForm ease-out forwards";
 	newProjectContainer.querySelector("#new-project__name").value = "";
 	newProjectContainer.querySelector(".icon-display i").className = "fas fa-sticky-note";
 }
@@ -15,17 +11,16 @@ function closeNewProject() {
 function initAddProjectForm() {
 	let newProjectContainer = document.createElement("div");
 	newProjectContainer.classList.add("new-project-container");
-	newProjectContainer.classList.add("fade");
 
 	newProjectContainer.innerHTML = "<h3 class=\"new-project__header\">New Project</h3>" +
-									"<p class=\"notice\"></p>" +
-									"<label for=\"new-project__name\" class=\"label\">" +
-										"<input id=\"new-project__name\" class=\"input\" placeholder=\"Project Name\" required>" +
-									"</label>" +
-									"<span class=\"icon-display\">" +
-										"<i class=\"fas fa-sticky-note\"></i>" +
-									"</span>" +
-									"<button class=\"btn btn__choose-icon\">Select Icon</button>" +
+									"<p class=\"new-project__notice\"></p>" +
+									"<input type=\"text\" id=\"new-project__name\" class=\"input\" placeholder=\"Project Name\" required>" +
+									"<div class=\"display-icon__box\">" +
+										"<span class=\"icon-display\">" +
+											"<i class=\"fas fa-sticky-note\"></i>" +
+										"</span>" +
+										"<button class=\"btn btn__choose-icon\">Select Icon</button>" +
+									"</div>" +
 									"<div class=\"row\">" +
 										"<div class=\"col-1-2\">" +
 											"<button class=\"btn btn__add-project\">Add Project</button>" +
@@ -34,7 +29,7 @@ function initAddProjectForm() {
 											"<button class=\"btn btn__cancel-project\">Cancel</button>" +
 										"</div>" +
 									"</div>" +
-									"<div class=\"choose-icon-container fade\">" +
+									"<div class=\"choose-icon-container\">" +
 										"<h4 class=\"choose-icon__header\">Choose an Icon</h4>" +
 										"<div class=\"choose-icon__box\">"+
 											"<i class=\"fas fa-broom icon\"></i><i class=\"fas fa-sticky-note icon\"></i>" +
@@ -48,12 +43,10 @@ function initAddProjectForm() {
 										"</div>" +
 									"</div>";
 
-	document.querySelector(".container").appendChild(newProjectContainer);
-
 	// select icon
 	let iconContainer = newProjectContainer.querySelector(".choose-icon-container");
 	newProjectContainer.querySelector(".btn__choose-icon").addEventListener("click", function() {
-		iconContainer.classList.remove("fade");
+		iconContainer.classList.add("show");
 	});
 
 	let displayIcon = newProjectContainer.querySelector(".icon-display i");
@@ -61,7 +54,7 @@ function initAddProjectForm() {
 		icon.addEventListener("click", function() {	
 			displayIcon.className = "";		
 			displayIcon.className = this.className;
-			iconContainer.classList.add("fade");
+			iconContainer.classList.remove("show");
 		});
 	});
 
@@ -69,7 +62,7 @@ function initAddProjectForm() {
 	newProjectContainer.querySelector(".btn__add-project").addEventListener("click", function() {
 		let projectName = newProjectContainer.querySelector("#new-project__name").value;
 		if(!projectName) {
-			newProjectContainer.querySelector(".notice").textContent = "Project Name Field is Required";
+			newProjectContainer.querySelector(".new-project__notice").textContent = "Project Name Field is Required";
 			return;
 		}
 
@@ -87,6 +80,8 @@ function initAddProjectForm() {
 	newProjectContainer.querySelector(".btn__cancel-project").addEventListener("click", function() {
 		closeNewProject();
 	});
+
+	document.querySelector(".container").appendChild(newProjectContainer);
 }
 
 export default initAddProjectForm;

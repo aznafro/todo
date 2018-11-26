@@ -1,23 +1,37 @@
+/**
+	Container Level
+**********************/
+
 .new-project-container,
 .choose-icon-container,
-.confirm-remove-container {
+.confirm-remove-container,
+.add-todo-container {
 	position: absolute;
-	top: 50%;
+	top: 35%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: -1;
-	transition: visibility, opacity $transition-short;
-	color: white;
+	transition: visibility, opacity, top $transition-short;
+	color: $text-color;
 	padding: 20px;
+	z-index: 5;
+	@include faded;
 }
 
 .new-project-container,
-.confirm-remove-container  {
-	background: tomato;
+.confirm-remove-container,
+.add-todo-container  {
+	background: $white;
+	border-radius: 3px;
+	border: 1px solid $main-color;
+}
+
+.new-project-container,
+.choose-icon-container {
+	width: 300px;
 }
 
 .choose-icon-container {
-	width: 300px;
 	background: steelblue;
 
 	display: flex;
@@ -41,5 +55,107 @@
 		&:hover {
 			cursor: pointer;
 		}
+	}
+}
+
+/**
+	Inner Elements Level
+**************************/
+.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+
+[class$="__header"] {
+	margin-bottom: 5px;
+	font-size: 24px;
+	color: $main-color;
+}
+
+[class$="__text"] {
+	color: $main-color;
+}
+
+.display-icon__box {
+	text-align: center;
+}
+
+.icon-display {
+	color: $main-color;
+	font-size: 24px;
+	margin-right: $h-gutter-width;
+}
+
+.label {
+	color: $main-color;
+}
+
+.input {
+	width: 100%;
+    border: none;
+    border-bottom: 2px solid $main-color;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: $v-gutter-width;
+}
+
+.input:focus {
+	outline: none;
+}
+
+.btn {
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 8px 12px;
+	color: $text-color;
+	background-color: $main-color;
+
+	&.btn__choose-icon {
+		width: unset;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+/**
+	Animations
+*************************/
+@keyframes showForm {
+	0% {
+		visibility: visible;
+		opacity: 0;
+	}
+
+	100% {
+		top: 40%;
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes hideForm {
+	0% {
+		visibility: visible;
+		top: 40%;
+		opacity: 1;
+	}
+
+	95% {
+		top: 35%;
+		opacity: 0;
+	}
+
+	100% {
+		top: 35%;
+		opacity: 0;
+		visibility: hidden;
 	}
 }

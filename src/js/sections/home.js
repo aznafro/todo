@@ -1,5 +1,7 @@
 import initScreen from "../components/screen.js";
-import initAddProjectForm from "../components/addProjectForm.js";
+import initAddProjectForm from "../forms/addProjectForm.js";
+import { initRemoveProjectForm } from "../forms/removeProjectForm.js";
+import initAddTodoForm from "../forms/addTodoForm.js";
 import initNavbar from "../components/navbar.js";
 import { initProjects } from "./projects.js";
 
@@ -12,14 +14,21 @@ function home() {
 	// init black screen
 	initScreen();
 
-	// init add project form
+	// init forms
 	initAddProjectForm();
+	initRemoveProjectForm();
+	initAddTodoForm();
 
-	// init the top bar
-	initNavbar();
+	let contentsContainer = document.createElement("div");
+	contentsContainer.classList.add("contents-container");
 
-	// init the projects section
-	initProjects();
+	document.querySelector(".container").appendChild(contentsContainer);
+
+	let navbar = initNavbar();
+	contentsContainer.appendChild(navbar);
+
+	let projects = initProjects();
+	contentsContainer.appendChild(projects);
 }
 
 export default home;

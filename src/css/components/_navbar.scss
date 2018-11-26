@@ -1,30 +1,34 @@
 nav {
-	background-color: crimson;
-	color: white;
+	background-color: $main-color;
+	color: $text-color;
 	z-index: 2;
+	flex-basis: 10%;
+}
 
-	.logo {
-		position: absolute;
-		padding-top: 6px;
-		left: 50%;
-		transform: translateX(-50%);
-	}
+.nav-list {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+
+	padding: 5px 15px;
+}
+
+.logo {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .back {
 	transition: $transition-long;
-}
-
-.nav-list {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-
-	padding: 5px 15px;
+	@include faded;
 }
 
 .nav-item {
-	padding: 5px 15px;
 
 	&:hover {
 		cursor: pointer;
@@ -33,52 +37,17 @@ nav {
 
 .nav-link {
 	display: inline-block;
-	width: 100%;
-	height: 100%;
+	padding: 5px 10px;
 }
 
 .menu-list {
-	position: absolute;
-	top: 0;
-	left: 100%;
-	width: $menu-length;
-	height: 100%;
-	background-color: crimson;
-	z-index: 2;
-	transition: $transition-short;
-
-	.nav-item {
-		border-bottom: 1px solid white;
-	}
-}
-
-.toggle-box-toggled {
-	position: relative;
-	width: 30px;
-	height: 18px;
-}
-
-.toggle-box-toggled::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.menu-toggle {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	width: 25px;
-	height: 98%;
-
-	&__bar {
-		width: 100%;
-		height: 2px;
-		background-color: white;
-		border-radius: 10px; 
-		transition: $transition-long cubic-bezier(0.55, 0.03, 0.24, 1.41);
-	}
 }
+
+.add-todo {
+	margin-top: 5px;
+}
+
 
 .add-remove-item {
 	position: relative;
@@ -87,43 +56,17 @@ nav {
 .add-project,
 .remove-project {
 	transition: $transition-short;
-}
-
-.remove-project {
-	position: absolute;
-	top: 5px;
-	left: 0;
-}
-
-.menu-toggle-toggled {
-	position: absolute;
-	top: 5px;
-	left: 0;
-	width: 100%;
-	z-index: 2;
-}
-
-.top-spin {
-	transform: translateY(6px) rotate(225deg);
-}
-
-.bot-spin {
-	transform: translateY(-5px) rotate(-225deg);	
+	font-size: 24px;
 }
 
 @media only screen and (min-width: 768px) {
-	.menu-toggle {
-		display: none;
+	nav {
+		order: 2;
+		flex-basis: 20%;
+		height: 100%;
 	}
 
-	.menu-list {
-		position: static;
-		display: flex;
-		width: unset;
-		flex-direction: row;
-
-		.nav-item {
-			border-bottom: none;
-		}
+	.nav-list {
+		flex-direction: column;
 	}
 }

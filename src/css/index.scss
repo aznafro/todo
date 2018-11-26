@@ -1,6 +1,8 @@
 @import "base/reset";
 @import "base/variables";
 
+@import "util/mixins"; 
+
 @import "components/navbar";
 @import "components/todo";
 @import "components/screen";
@@ -11,4 +13,4 @@
 @import "layout/grid"; 
 @import "layout/container";
 
-@import "helper/classes"; 
+@import "util/classes";

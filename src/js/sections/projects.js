@@ -1,6 +1,7 @@
 import { createIconFace, createListFace } from "../components/project.js";
 
 const PROJECT_NAMES = "PROJECT_NAMES";
+let iconsContainer;
 let iconsRow;
 let listsRow;
 
@@ -22,10 +23,10 @@ function addNewProject(projectObj, userAdded) {
 	iconCol.classList.add("col-lg-1-5");
 	iconCol.setAttributeNode(iconDataAttr);
 
-	let iconsContainer = document.querySelector(".projects__icons");
-	let backButton = document.querySelector(".back");
+	let backButton = document.querySelector("nav .back");
 	let addProjectButton = document.querySelector("nav .add-project");
 	let removeProjectButton = document.querySelector("nav .remove-project");
+	let addTodoButton = document.querySelector("nav .add-todo");
 	iconElement.addEventListener("click", function() {
 		// icons fade
 		iconsContainer.classList.add("fade");
@@ -34,9 +35,10 @@ function addNewProject(projectObj, userAdded) {
 		listElement.classList.add("show-list");
 
 		// hide/show buttons
-		backButton.classList.remove("fade");
-		addProjectButton.classList.add("fade");
-		removeProjectButton.classList.remove("fade");
+		backButton.classList.add("show");
+		addProjectButton.classList.add("hidden");
+		removeProjectButton.classList.remove("hidden");
+		addTodoButton.classList.remove("hidden");
 	});
 
 	iconCol.appendChild(iconElement);
@@ -75,10 +77,8 @@ function initProjects() {
 	projectsContainer.innerHTML = "<div class=\"projects__icons\"></div>" +
                                   "<div class=\"projects__lists\"></div>";
 
-    document.querySelector(".container").appendChild(projectsContainer);
-
-	let iconsContainer = document.querySelector(".projects__icons");
-	let listsContainer = document.querySelector(".projects__lists");
+	iconsContainer = projectsContainer.querySelector(".projects__icons");
+	let listsContainer = projectsContainer.querySelector(".projects__lists");
 	iconsRow = document.createElement("div");
 	listsRow = document.createElement("div");
 
@@ -96,6 +96,8 @@ function initProjects() {
 
 	iconsContainer.appendChild(iconsRow);
 	listsContainer.appendChild(listsRow);
+
+	return projectsContainer;
 }
 
 export {
