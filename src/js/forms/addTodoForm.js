@@ -84,7 +84,8 @@ function initAddTodoForm() {
 			name: itemName,
 			priority: priority,
 			desc: desc,
-			duedate: date
+			duedate: date,
+			completed: false
 		};
 
 		// get the project and add the todo

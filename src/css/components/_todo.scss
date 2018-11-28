@@ -1,5 +1,9 @@
 .todo {
-	padding: 25px 15px;
+	padding: 15px 20px;
+
+	&:not(:last-child) {
+		margin-bottom: 5px;
+	}
 
 	&__name {
 		font-size: 26px;
@@ -28,13 +32,18 @@
 		position: absolute;
 		top: 100%;
 		right: 0;
+		width: 130px;
 		height: 0;
 		overflow: hidden;
 		transition: $transition-short;
+
+		.btn {
+			border-radius: 0;
+		}
 	}
 
 	.show-menu {
-		height: 60px;
+		height: 90px;
 	}
 }
 
@@ -48,14 +57,19 @@
 }
 
 .priority-1 {
-	@include priority(#900C3F);
+	@include priority($red);
 }
 
  
 .priority-2 { 
-	@include priority(#FFC300);
+	@include priority($yellow);
 }
 
 .priority-3 {
-	@include priority(#DAF7A6);
+	@include priority($green);
+}
+
+.completed {
+	border-left: none;
+	background-color: $completed;
 }

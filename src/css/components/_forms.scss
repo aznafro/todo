@@ -101,7 +101,7 @@
     margin-bottom: $v-gutter-width;
  	color: $main-color;
 	font-family: inherit;
-	font-size: 18px;
+	font-size: $form-label-font-size;
 }
 
 .input:focus {
