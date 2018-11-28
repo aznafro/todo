@@ -128,12 +128,10 @@ nav i {
 }
 .todo__name {
   font-size: 26px;
-  margin-bottom: 10px;
   color: wheat;
 }
 .todo__duedate {
   display: inline-block;
-  margin-bottom: 5px;
   font-size: 16px;
   color: white;
 }
@@ -186,6 +184,14 @@ nav i {
   background-color: rgba(152, 251, 152, 0.8);
 }
 
+@media only screen and (min-width: 768px) {
+  .todo__name {
+    margin-bottom: 10px;
+  }
+  .todo__duedate {
+    margin-bottom: 5px;
+  }
+}
 .screen {
   position: absolute;
   top: 0;
@@ -400,8 +406,8 @@ nav i {
   text-align: center;
 }
 .projects__icons .project__icon-face i {
-  font-size: 24px;
-  padding: 20px 25px;
+  font-size: 32px;
+  padding: 15px 22px;
   border-radius: 10px;
   background-color: crimson;
   color: white;
