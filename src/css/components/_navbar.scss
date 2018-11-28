@@ -49,6 +49,10 @@ nav {
 
 .nav-link {
 	padding: 5px 10px;
+
+	&.add-todo {
+		padding-right: 0;
+	}
 }
 
 .list-menu-items {
