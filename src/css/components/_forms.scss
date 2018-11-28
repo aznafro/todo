@@ -18,7 +18,6 @@
 	padding: 20px;
 	z-index: 5;
 	@include faded;
-	backface-visibility: hidden;
 }
 
 .choose-icon__form {
@@ -50,8 +49,19 @@
 	}
 }
 
+.confirm-remove-project {
+	
+	&__form {
+		text-align: center;
+	}
+
+	&__header {
+		margin-bottom: 10px;
+	}
+}
+
 .show-choose-icon {
-	height: 195px;
+	height: 230px;
 	padding: 10px;
 }
 
@@ -64,18 +74,17 @@
 	font-size: 32px;
 }
 
-[class$="__text"] {
-}
-
 .display-icon__box {
 	text-align: center;
-	margin-bottom: $v-gutter-width;
+	margin: $v-gutter-width 0;
 }
 
 .icon-display {
+	display: inline-block;
 	color: $main-color;
-	font-size: 24px;
-	margin-right: $h-gutter-width;
+	font-size: 45px;
+	padding: 0 15px;
+	line-height: 30px;
 }
 
 .label {
@@ -110,6 +119,7 @@
 
 	&.btn__choose-icon {
 		width: unset;
+		vertical-align: top;
 	}
 
 	&:focus {
@@ -144,7 +154,7 @@
 	}
 }
 
-@keyframes hideForm {
+@keyframes hideAddTodoForm {
 	0% {
 		visibility: visible;
 		top: 50%;

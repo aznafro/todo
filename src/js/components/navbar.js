@@ -1,5 +1,5 @@
 import removeProject from "../forms/removeProjectForm.js";
-import { showForm } from "../forms/formFunctions.js";
+import { showForm, hideForm } from "../forms/formFunctions.js";
 
 function initNavbar() {
 	let nav = document.createElement("nav");
@@ -26,9 +26,9 @@ function initNavbar() {
 	let addTodoButton = nav.querySelector(".add-todo");
 
 	// form containers
-	let newProjectContainer = document.querySelector(".new-project__form");
-	let confirmRemoveProjectContainer = document.querySelector(".confirm-remove-project__form");
-	let addTodoContainer = document.querySelector(".add-todo__form");
+	let newProjectForm = document.querySelector(".new-project__form");
+	let confirmRemoveProjectForm = document.querySelector(".confirm-remove-project__form");
+	let addTodoForm = document.querySelector(".add-todo__form");
 	let listMenuItems = nav.querySelector(".list-menu-items");
 
 	nav.querySelector(".back").addEventListener("click", function() {
@@ -49,22 +49,37 @@ function initNavbar() {
 	});
 
 	// add project
-	addProjectButton.addEventListener("click", function() {
-		showForm(newProjectContainer);
+	addProjectButton.addEventListener("click", function(e) {
+		e.stopPropagation();
+		showForm(newProjectForm);
 	});
 
 	// initiate delete
-	removeProjectButton.addEventListener("click", function() {
+	removeProjectButton.addEventListener("click", function(e) {
 		let projectName = document.querySelector(".show-list .project__name").textContent;
 		let confirmRemoveProjectName = document.querySelector(".confirm-remove-project__name");
 
+		e.stopPropagation();
+		if(addTodoForm.style.animation.indexOf("show") != -1) { hideForm(addTodoForm); }
 		confirmRemoveProjectName.textContent = projectName;
-		showForm(confirmRemoveProjectContainer);
+		showForm(confirmRemoveProjectForm);
 	});
 
 	// add todo
-	addTodoButton.addEventListener("click", function() {
-		showForm(addTodoContainer);
+	addTodoButton.addEventListener("click", function(e) {
+		e.stopPropagation();
+		if(confirmRemoveProjectForm.style.animation.indexOf("show") != -1) { hideForm(confirmRemoveProjectForm); }
+		showForm(addTodoForm);
+	});
+
+	// on contents-container click, hide any forms that are displayed
+	// form containers are all outside the contents-container
+	// don't need to stopPropagation() on the form containers, just the buttons
+	// there's one more for the confirm remove todo in the todo.js file
+	document.querySelector(".contents-container").addEventListener("click", function() {
+		if(newProjectForm.style.animation.indexOf("show") != -1) { hideForm(newProjectForm); }
+		if(addTodoForm.style.animation.indexOf("show") != -1) { hideForm(addTodoForm); }
+		if(confirmRemoveProjectForm.style.animation.indexOf("show") != -1) { hideForm(confirmRemoveProjectForm); }
 	});
 
 	return nav;

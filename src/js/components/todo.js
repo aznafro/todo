@@ -1,4 +1,4 @@
-import { showForm } from "../forms/formFunctions";
+import { showForm, hideForm } from "../forms/formFunctions";
 
 function createTodo(todo) {
 	let listItem = document.createElement("article");
@@ -23,15 +23,24 @@ function createTodo(todo) {
 	listItem.querySelector(".todo__duedate").textContent = todo.duedate;
 	listItem.querySelector(".todo__desc").textContent = todo.desc;
 
+	// menu toggle
 	let menuList = listItem.querySelector(".menu-list");
-	listItem.querySelector(".menu-toggle").addEventListener("click", function() {
+	listItem.querySelector(".menu-toggle").addEventListener("click", function(e) {
+		e.stopPropagation();
 		menuList.classList.toggle("show-menu");
+	});
+
+	let contentsContainer = document.querySelector(".contents-container");
+	contentsContainer.addEventListener("click", function() {
+		menuList.classList.remove("show-menu");
+		if(confirmRemoveItemForm.style.animation.indexOf("show") != -1) { hideForm(confirmRemoveItemForm); }
 	});
 
 	let itemName = listItem.querySelector(".todo__name").textContent;
 	let confirmRemoveItemForm = document.querySelector(".confirm-remove-todo__form");
 	let itemNameSpan = confirmRemoveItemForm.querySelector(".confirm-remove-todo__name");
-	listItem.querySelector(".delete-todo").addEventListener("click", function() {
+	listItem.querySelector(".delete-todo").addEventListener("click", function(e) {
+		e.stopPropagation();
 		menuList.classList.remove("show-menu");
 
 		// show confirm delete todo window
