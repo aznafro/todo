@@ -24,6 +24,9 @@ nav {
   z-index: 2;
   flex-basis: 10%;
 }
+nav .menu-list {
+  display: flex;
+}
 
 .nav-list {
   position: relative;
@@ -57,10 +60,6 @@ nav {
   padding: 5px 10px;
 }
 
-.menu-list {
-  display: flex;
-}
-
 .add-todo {
   margin-top: 5px;
 }
@@ -86,8 +85,60 @@ nav {
     flex-direction: column;
   }
 }
+.todo {
+  padding: 25px 15px;
+}
 .todo__list-item {
   border-bottom: 1px solid white;
+}
+.todo .menu-box {
+  position: relative;
+  float: right;
+}
+.todo .menu-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 80px;
+  height: 0;
+  overflow: hidden;
+  transition: 300ms;
+}
+.todo .show-menu {
+  height: 60px;
+}
+
+.menu-toggle:hover {
+  cursor: pointer;
+}
+
+.list-item {
+  width: 100%;
+  background-color: lightgray;
+}
+.list-item:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+.list-item:hover {
+  cursor: pointer;
+}
+
+.list-link {
+  width: 100%;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.priority-1 {
+  border-left: 10px solid crimson;
+}
+
+.priority-2 {
+  border-left: 10px solid yellow;
+}
+
+.priority-3 {
+  border-left: 10px solid green;
 }
 
 .screen {
@@ -108,78 +159,64 @@ nav {
 /**
 	Container Level
 **********************/
-.new-project-container,
-.choose-icon-container,
-.confirm-remove-container,
-.add-todo-container {
+[class$=__form]:not([class^=choose-icon]) {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid crimson;
   position: absolute;
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 300px;
   z-index: -1;
   transition: visibility, opacity, top 300ms;
-  color: white;
+  color: crimson;
   padding: 20px;
   z-index: 5;
   visibility: hidden;
   opacity: 0;
 }
 
-.new-project-container,
-.confirm-remove-container,
-.add-todo-container {
-  background: white;
-  border-radius: 3px;
-  border: 1px solid crimson;
-}
-
-.new-project-container,
-.choose-icon-container {
-  width: 300px;
-}
-
-.choose-icon-container {
-  background: steelblue;
-  display: flex;
-  flex-wrap: wrap;
+.choose-icon__form {
+  background: crimson;
+  color: white;
   z-index: 1;
+  height: 0;
+  transition: 300ms;
+  border-radius: 3px;
 }
-.choose-icon-container .choose-icon__header {
+.choose-icon__form .choose-icon__header {
   text-align: center;
   margin-bottom: 10px;
 }
-.choose-icon-container .choose-icon__box {
+.choose-icon__form .choose-icon__box {
   padding: 10px;
 }
-.choose-icon-container .icon {
+.choose-icon__form .icon {
   padding: 10px;
   font-size: 24px;
   color: white;
 }
-.choose-icon-container .icon:hover {
+.choose-icon__form .icon:hover {
   cursor: pointer;
+}
+
+.show-choose-icon {
+  height: 195px;
+  padding: 10px;
 }
 
 /**
 	Inner Elements Level
 **************************/
-.show {
-  visibility: visible;
-  opacity: 1;
-}
-
 [class$=__header] {
   margin-bottom: 5px;
   font-size: 24px;
-  color: crimson;
-}
-
-[class$=__text] {
-  color: crimson;
 }
 
 .display-icon__box {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .icon-display {
@@ -221,6 +258,13 @@ nav {
 }
 .btn:hover {
   cursor: pointer;
+}
+
+/**
+	New Todo Form
+*************************/
+.new-todo__desc {
+  line-height: 7px;
 }
 
 /**
@@ -350,6 +394,11 @@ nav {
   height: 100%;
 }
 
+.todos-container {
+  overflow-y: scroll;
+  height: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   .contents-container {
     flex-direction: row;
@@ -363,11 +412,6 @@ nav {
 }
 .hidden {
   display: none;
-}
-
-.show {
-  visibility: visible;
-  opacity: 1;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,6 +1,8 @@
+import { hideForm } from "./formFunctions.js";
+ 
 const PROJECT_NAMES = "PROJECT_NAMES";
 
-function removeProject() {
+function removeProject(formToHide) {
 	let projectName = document.querySelector(".show-list .project__name").textContent;
 	
 	// remove it from local storage
@@ -21,20 +23,18 @@ function removeProject() {
 		el.remove();
 	});
 
-	let confirmRemoveContainer = document.querySelector(".confirm-remove-container");
-	confirmRemoveContainer.classList.add("fade");
-	confirmRemoveContainer.classList.remove("bring-up");
+	hideForm(formToHide);
 
 	document.querySelector("nav .back").click();
 }
 
 // remove project
 function initRemoveProjectForm() {
-	let confirmRemoveContainer = document.createElement("div");
-	confirmRemoveContainer.classList.add("confirm-remove-container");
+	let confirmRemoveProjectForm = document.createElement("div");
+	confirmRemoveProjectForm.classList.add("confirm-remove-project__form");
 
-	confirmRemoveContainer.innerHTML = "<h3 class=\"confirm-remove__header\">Confirm Remove Project</h3>" +
-									   "<p class=\"confirm-remove__text\">Are you sure you want to remove project: '<span class=\"confirm-remove__project-name\">" + "</span>'?</p>" +
+	confirmRemoveProjectForm.innerHTML = "<h3 class=\"confirm-remove-project__header\">Confirm Remove Project</h3>" +
+									   "<p class=\"confirm-remove-project__text\">Are you sure you want to remove project: '<span class=\"confirm-remove-project__name\">" + "</span>'?</p>" +
 									   "<div class=\"row\">" +
 									   		"<div class=\"col-1-2\">" +
 									   			"<button class=\"btn btn__confirm-remove\">Yes</button>" +
@@ -45,16 +45,16 @@ function initRemoveProjectForm() {
 									   "</div>";
 
 	// confirm delete
-	confirmRemoveContainer.querySelector(".btn__confirm-remove").addEventListener("click", function() {
-		removeProject();
+	confirmRemoveProjectForm.querySelector(".btn__confirm-remove").addEventListener("click", function() {
+		removeProject(confirmRemoveProjectForm);
 	});
 
 	// cancel delete
-	confirmRemoveContainer.querySelector(".btn__cancel-remove").addEventListener("click", function() {
-		confirmRemoveContainer.style.animation = "300ms hideForm ease-out forwards";
+	confirmRemoveProjectForm.querySelector(".btn__cancel-remove").addEventListener("click", function() {
+		hideForm(confirmRemoveProjectForm);
 	});
 
-	document.querySelector(".container").appendChild(confirmRemoveContainer);
+	document.querySelector(".container").appendChild(confirmRemoveProjectForm);
 }
 
 export { 

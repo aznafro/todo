@@ -2,6 +2,7 @@ import initScreen from "../components/screen.js";
 import initAddProjectForm from "../forms/addProjectForm.js";
 import { initRemoveProjectForm } from "../forms/removeProjectForm.js";
 import initAddTodoForm from "../forms/addTodoForm.js";
+import { initRemoveTodoForm } from "../forms/removeTodoForm.js";
 import initNavbar from "../components/navbar.js";
 import { initProjects } from "./projects.js";
 
@@ -18,6 +19,7 @@ function home() {
 	initAddProjectForm();
 	initRemoveProjectForm();
 	initAddTodoForm();
+	initRemoveTodoForm();
 
 	let contentsContainer = document.createElement("div");
 	contentsContainer.classList.add("contents-container");

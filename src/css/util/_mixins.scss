@@ -2,3 +2,7 @@
 	visibility: hidden;
 	opacity: 0;
 }
+
+@mixin priority($color) {
+	border-left: 10px solid $color;
+}

@@ -2,41 +2,30 @@
 	Container Level
 **********************/
 
-.new-project-container,
-.choose-icon-container,
-.confirm-remove-container,
-.add-todo-container {
+[class$="__form"]:not([class^="choose-icon"]) {
+	background: $white;
+	border-radius: 3px;
+	border: 1px solid $main-color;
 	position: absolute;
 	top: 35%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width: 300px;
 	z-index: -1;
 	transition: visibility, opacity, top $transition-short;
-	color: $text-color;
+	color: $main-color;
 	padding: 20px;
 	z-index: 5;
 	@include faded;
 }
 
-.new-project-container,
-.confirm-remove-container,
-.add-todo-container  {
-	background: $white;
-	border-radius: 3px;
-	border: 1px solid $main-color;
-}
-
-.new-project-container,
-.choose-icon-container {
-	width: 300px;
-}
-
-.choose-icon-container {
-	background: steelblue;
-
-	display: flex;
-	flex-wrap: wrap;
+.choose-icon__form {
+	background: $main-color;
+	color: $white;
 	z-index: 1;
+	height: 0;
+	transition: $transition-short;
+	border-radius: 3px;
 
 	.choose-icon__header {
 		text-align: center;
@@ -58,27 +47,26 @@
 	}
 }
 
+.show-choose-icon {
+	height: 195px;
+	padding: 10px;
+}
+
 /**
 	Inner Elements Level
 **************************/
-.show {
-	visibility: visible;
-	opacity: 1;
-}
-
 
 [class$="__header"] {
 	margin-bottom: 5px;
 	font-size: 24px;
-	color: $main-color;
 }
 
 [class$="__text"] {
-	color: $main-color;
 }
 
 .display-icon__box {
 	text-align: center;
+	margin-bottom: $v-gutter-width;
 }
 
 .icon-display {
@@ -123,6 +111,13 @@
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+/**
+	New Todo Form
+*************************/
+.new-todo__desc {
+	line-height: 7px;
 }
 
 /**

@@ -1,6 +1,62 @@
 .todo {
+	padding: 25px 15px;
 
 	&__list-item {
 		border-bottom: 1px solid white;
 	}
+
+	.menu-box {
+		position: relative;
+		float: right;
+	}
+
+	.menu-list {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		width: 80px;
+		height: 0;
+		overflow: hidden;
+		transition: $transition-short;
+	}
+
+	.show-menu {
+		height: 60px;
+	}
+}
+
+.menu-toggle:hover {
+	cursor: pointer;
+}
+
+.list-item {
+	width: 100%;
+	background-color: lightgray;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid gray;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.list-link {
+	width: 100%;
+	display: inline-block;
+	padding: 5px 10px;
+}
+
+.priority-1 {
+	@include priority($main-color);
+}
+
+ 
+.priority-2 { 
+	@include priority(yellow);
+}
+
+.priority-3 {
+	@include priority(green);
 }

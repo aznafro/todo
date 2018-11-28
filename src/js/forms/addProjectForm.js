@@ -1,16 +1,14 @@
 import { addNewProject } from "../sections/projects.js";
 
-function closeNewProject() {
-	let newProjectContainer = document.querySelector(".new-project-container");
-
-	newProjectContainer.style.animation = "300ms hideForm ease-out forwards";
-	newProjectContainer.querySelector("#new-project__name").value = "";
-	newProjectContainer.querySelector(".icon-display i").className = "fas fa-sticky-note";
+function hideForm(container) {
+	container.querySelector("#new-project__name").value = "";
+	container.querySelector(".icon-display i").className = "fas fa-sticky-note";
+	container.style.animation = "300ms hideForm ease-out forwards";
 }
 
 function initAddProjectForm() {
 	let newProjectContainer = document.createElement("div");
-	newProjectContainer.classList.add("new-project-container");
+	newProjectContainer.classList.add("new-project__form");
 
 	newProjectContainer.innerHTML = "<h3 class=\"new-project__header\">New Project</h3>" +
 									"<p class=\"new-project__notice\"></p>" +
@@ -21,15 +19,7 @@ function initAddProjectForm() {
 										"</span>" +
 										"<button class=\"btn btn__choose-icon\">Select Icon</button>" +
 									"</div>" +
-									"<div class=\"row\">" +
-										"<div class=\"col-1-2\">" +
-											"<button class=\"btn btn__add-project\">Add Project</button>" +
-										"</div>" +
-										"<div class=\"col-1-2\">" +
-											"<button class=\"btn btn__cancel-project\">Cancel</button>" +
-										"</div>" +
-									"</div>" +
-									"<div class=\"choose-icon-container\">" +
+									"<div class=\"choose-icon__form\">" +
 										"<h4 class=\"choose-icon__header\">Choose an Icon</h4>" +
 										"<div class=\"choose-icon__box\">"+
 											"<i class=\"fas fa-broom icon\"></i><i class=\"fas fa-sticky-note icon\"></i>" +
@@ -41,12 +31,20 @@ function initAddProjectForm() {
 											"<i class=\"fas fa-football-ball icon\"></i><i class=\"fas fa-balance-scale icon\"></i>" +
 											"<i class=\"fas fa-plane-departure icon\"></i>" +
 										"</div>" +
+									"</div>" +
+									"<div class=\"row\">" +
+										"<div class=\"col-1-2\">" +
+											"<button class=\"btn btn__add-project\">Add Project</button>" +
+										"</div>" +
+										"<div class=\"col-1-2\">" +
+											"<button class=\"btn btn__cancel-project\">Cancel</button>" +
+										"</div>" +
 									"</div>";
 
 	// select icon
-	let iconContainer = newProjectContainer.querySelector(".choose-icon-container");
+	let iconContainer = newProjectContainer.querySelector(".choose-icon__form");
 	newProjectContainer.querySelector(".btn__choose-icon").addEventListener("click", function() {
-		iconContainer.classList.add("show");
+		iconContainer.classList.toggle("show-choose-icon");
 	});
 
 	let displayIcon = newProjectContainer.querySelector(".icon-display i");
@@ -54,15 +52,24 @@ function initAddProjectForm() {
 		icon.addEventListener("click", function() {	
 			displayIcon.className = "";		
 			displayIcon.className = this.className;
-			iconContainer.classList.remove("show");
+			iconContainer.classList.remove("show-choose-icon");
 		});
 	});
 
 	// add the project
 	newProjectContainer.querySelector(".btn__add-project").addEventListener("click", function() {
 		let projectName = newProjectContainer.querySelector("#new-project__name").value;
+		let dupProj = localStorage.getItem(projectName);
+		
+		// make sure there is a project name
 		if(!projectName) {
-			newProjectContainer.querySelector(".new-project__notice").textContent = "Project Name Field is Required";
+			newProjectContainer.querySelector(".new-project__notice").textContent = "Project Name Field is required";
+			return;
+		}
+
+		// and make sure there isn't a duplicate project with the same name
+		else if(dupProj) {
+			newProjectContainer.querySelector(".new-project__notice").textContent = "Project with that name already exists";
 			return;
 		}
 
@@ -73,12 +80,12 @@ function initAddProjectForm() {
 			todos: []
 		}, true);
 
-		closeNewProject();
+		hideForm(newProjectContainer);
 	});
 
 	// cancel add new project
 	newProjectContainer.querySelector(".btn__cancel-project").addEventListener("click", function() {
-		closeNewProject();
+		hideForm(newProjectContainer);
 	});
 
 	document.querySelector(".container").appendChild(newProjectContainer);

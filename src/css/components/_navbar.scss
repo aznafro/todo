@@ -3,6 +3,10 @@ nav {
 	color: $text-color;
 	z-index: 2;
 	flex-basis: 10%;
+
+	.menu-list {
+		display: flex;
+	}
 }
 
 .nav-list {
@@ -38,10 +42,6 @@ nav {
 .nav-link {
 	display: inline-block;
 	padding: 5px 10px;
-}
-
-.menu-list {
-	display: flex;
 }
 
 .add-todo {

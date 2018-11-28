@@ -21,6 +21,11 @@
 	height: 100%;
 }
 
+.todos-container {
+	overflow-y: scroll;
+	height: 100%;
+}
+
 @media only screen and (min-width: 768px) {
 	.contents-container {
 		flex-direction: row;

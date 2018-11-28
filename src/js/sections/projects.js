@@ -5,9 +5,22 @@ let iconsContainer;
 let iconsRow;
 let listsRow;
 
-// the projects are added as a group of icons and a group of lists
-// it was done this way in order to get the list full screen animation effect
 function addNewProject(projectObj, userAdded) {
+	// update localStorage
+	if(userAdded) {
+		let names = localStorage.getItem(PROJECT_NAMES);
+
+		if(!names) {
+			names = projectObj.name;
+		} else {
+			names += "," + projectObj.name;
+		}
+
+		localStorage.setItem(PROJECT_NAMES, names);
+		localStorage.setItem(projectObj.name, JSON.stringify(projectObj));
+	}
+
+	// update ui
 	let iconCol = document.createElement("div");
 	let listCol = document.createElement("div");
 
@@ -55,21 +68,11 @@ function addNewProject(projectObj, userAdded) {
 
 	listCol.appendChild(listElement);
 	listsRow.appendChild(listCol);
-
-	if(userAdded) {
-		let names = localStorage.getItem(PROJECT_NAMES);
-
-		if(!names) {
-			names = projectObj.name;
-		} else {
-			names += "," + projectObj.name;
-		}
-
-		localStorage.setItem(PROJECT_NAMES, names);
-		localStorage.setItem(projectObj.name, JSON.stringify(projectObj));
-	}
 }
 
+// <container>
+//	<icons>
+//	<lists>
 function initProjects() {
 
 	let projectsContainer = document.createElement("section");

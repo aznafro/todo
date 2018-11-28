@@ -1,8 +1,5 @@
-import removeProject from "../forms/removeProjectForm";
-
-function showForm(form) {
-	form.style.animation = "300ms showForm ease-in-out forwards";
-}
+import removeProject from "../forms/removeProjectForm.js";
+import { showForm } from "../forms/formFunctions.js";
 
 function initNavbar() {
 	let nav = document.createElement("nav");
@@ -29,9 +26,9 @@ function initNavbar() {
 	let addTodoButton = nav.querySelector(".add-todo");
 
 	// form containers
-	let newProjectContainer = document.querySelector(".new-project-container");
-	let confirmRemoveContainer = document.querySelector(".confirm-remove-container");
-	let addTodoContainer = document.querySelector(".add-todo-container");
+	let newProjectContainer = document.querySelector(".new-project__form");
+	let confirmRemoveProjectContainer = document.querySelector(".confirm-remove-project__form");
+	let addTodoContainer = document.querySelector(".add-todo__form");
 
 	nav.querySelector(".back").addEventListener("click", function() {
 
@@ -59,10 +56,10 @@ function initNavbar() {
 	// initiate delete
 	removeProjectButton.addEventListener("click", function() {
 		let projectName = document.querySelector(".show-list .project__name").textContent;
-		let confirmRemoveProjectName = document.querySelector(".confirm-remove__project-name");
+		let confirmRemoveProjectName = document.querySelector(".confirm-remove-project__name");
 
 		confirmRemoveProjectName.textContent = projectName;
-		showForm(confirmRemoveContainer);
+		showForm(confirmRemoveProjectContainer);
 	});
 
 	// add todo
