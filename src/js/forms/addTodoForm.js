@@ -1,4 +1,4 @@
-import { updateListUI } from "./formFunctions.js";
+import { updateCurrentListUI } from "./formFunctions.js";
 
 function hideForm(form) {
 	let nameInput = form.querySelector(".new-todo__name");
@@ -119,7 +119,7 @@ function initAddTodoForm() {
 		localStorage.setItem(projectName, JSON.stringify(projectObj));
 
 		// update ui
-		updateListUI();
+		updateCurrentListUI();
 
 		// close form
 		hideForm(addTodoForm);

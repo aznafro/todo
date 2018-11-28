@@ -1,4 +1,4 @@
-import { updateListUI, hideForm } from "./formFunctions.js";
+import { updateCurrentListUI, hideForm } from "./formFunctions.js";
 
 function removeTodo(itemName, container) {
 	// update localstorage
@@ -18,7 +18,7 @@ function removeTodo(itemName, container) {
 	localStorage.setItem(projectName, JSON.stringify(projectObj));
 
 	// update UI
-	updateListUI();
+	updateCurrentListUI();
 
 	hideForm(container);
 }

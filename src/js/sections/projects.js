@@ -38,8 +38,7 @@ function addNewProject(projectObj, userAdded) {
 
 	let backButton = document.querySelector("nav .back");
 	let addProjectButton = document.querySelector("nav .add-project");
-	let removeProjectButton = document.querySelector("nav .remove-project");
-	let addTodoButton = document.querySelector("nav .add-todo");
+	let listMenuItems = document.querySelectorAll("nav .list-menu-items");
 	iconElement.addEventListener("click", function() {
 		// icons fade
 		iconsContainer.classList.add("fade");
@@ -50,8 +49,9 @@ function addNewProject(projectObj, userAdded) {
 		// hide/show buttons
 		backButton.classList.add("show");
 		addProjectButton.classList.add("hidden");
-		removeProjectButton.classList.remove("hidden");
-		addTodoButton.classList.remove("hidden");
+		listMenuItems.forEach(function(item) {
+			item.classList.remove("hidden");
+		});
 	});
 
 	iconCol.appendChild(iconElement);

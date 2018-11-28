@@ -4,21 +4,23 @@ import { showForm } from "../forms/formFunctions.js";
 function initNavbar() {
 	let nav = document.createElement("nav");
 	
-	nav.innerHTML = "<ul class=\"nav-list\">" +
-				        "<li class=\"nav-item back\"><i class=\"fas fa-arrow-left\"></i></li>" +
-				        "<h1 class=\"logo\">Get 'er Done</h1>" +
-				        "<ul class=\"menu-list\">" +
-					    	"<li class=\"nav-item\">" +
-					    		"<a class=\"nav-link add-project\"><i class=\"fas fa-folder-plus\"></i></a>" +
-					    	"</li>" +
-					    	"<li class=\"nav-item\">" +
-					    		"<a class=\"nav-link add-todo hidden\"><i class=\"fas fa-plus\"></i></a>" +
-					    	"</li>" +
-					    	"<li class=\"nav-item\">" +
-					    		"<a class=\"nav-link remove-project hidden\"><i class=\"fas fa-folder-minus\"></i></a>" +
-					    	"</li>" +
-					    "</ul>" +
-					"</ul>";
+	nav.innerHTML = "<h1 class=\"logo\">Get 'er Done</h1>" +
+			        "<ul class=\"menu-list\">" +
+			        	"<li class=\"nav-item back\">" +
+			        		"<a class=\"nav-link\">" +
+			        			"<i class=\"fas fa-arrow-left\"></i> <span>Back</span>" +
+			        		"</a>" +
+			        	"</li>" +
+				    	"<li class=\"nav-item\">" +
+				    		"<a class=\"nav-link add-project\"><i class=\"fas fa-folder-plus\"></i> <span>Add Project</span></a>" +
+				    	"</li>" +
+				    	"<li class=\"nav-item list-menu-items hidden\">" +
+					    	"<a class=\"nav-link add-todo\"><i class=\"fas fa-plus\"></i> <span>Add Item</span></a>" +
+					    "</li>" +
+					    "<li class=\"nav-item list-menu-items hidden\">" + 
+					    	"<a class=\"nav-link remove-project\"><i class=\"fas fa-folder-minus\"></i> <span>Delete Project</span></a>" +
+					    "</li>" +
+				    "</ul>";
 
 	// buttons
 	let addProjectButton = nav.querySelector(".add-project");
@@ -29,6 +31,7 @@ function initNavbar() {
 	let newProjectContainer = document.querySelector(".new-project__form");
 	let confirmRemoveProjectContainer = document.querySelector(".confirm-remove-project__form");
 	let addTodoContainer = document.querySelector(".add-todo__form");
+	let listMenuItems = nav.querySelectorAll(".list-menu-items");
 
 	nav.querySelector(".back").addEventListener("click", function() {
 
@@ -43,8 +46,9 @@ function initNavbar() {
 
 		// show/hide buttons
 		this.classList.remove("show");
-		addTodoButton.classList.add("hidden");
-		removeProjectButton.classList.add("hidden");
+		listMenuItems.forEach(function(item) {
+			item.classList.add("hidden");
+		});
 		addProjectButton.classList.remove("hidden");
 	});
 

@@ -2,28 +2,25 @@ nav {
 	background-color: $main-color;
 	color: $text-color;
 	z-index: 2;
-	flex-basis: 10%;
+
+	position: relative;
+	padding: 5px 15px;
 
 	.menu-list {
 		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
 	}
-}
-
-.nav-list {
-	position: relative;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
-
-	padding: 5px 15px;
 }
 
 .logo {
 	position: absolute;
+	width: 100%;
 	left: 50%;
 	top: 50%;
+	text-align: center;
+	z-index: -1;
 	transform: translate(-50%, -50%);
 }
 
@@ -33,6 +30,11 @@ nav {
 }
 
 .nav-item {
+	font-size: 24px;
+
+	span {
+		display: none;
+	}
 
 	&:hover {
 		cursor: pointer;
@@ -44,29 +46,44 @@ nav {
 	padding: 5px 10px;
 }
 
-.add-todo {
-	margin-top: 5px;
-}
-
-
-.add-remove-item {
-	position: relative;
-}
-
-.add-project,
-.remove-project {
-	transition: $transition-short;
-	font-size: 24px;
+.list-menu-items {
+	display: flex;
 }
 
 @media only screen and (min-width: 768px) {
 	nav {
 		order: 2;
-		flex-basis: 20%;
+		flex-basis: 25%;
 		height: 100%;
+	}
+
+	.menu-list,
+	.list-menu-items {
+		flex-direction: column;
+	}
+
+	.logo {
+		position: static;
+		transform: unset;
+		font-size: 32px;
+		margin-bottom: 20px;
 	}
 
 	.nav-list {
 		flex-direction: column;
+	}
+
+	.nav-item {
+		width: 100%;
+
+		span {
+			display: unset;
+		}
+	}
+
+	.nav-link {
+		width: 100%;
+		padding: 15px 0;
+		border-bottom: 1px solid $white;
 	}
 }
