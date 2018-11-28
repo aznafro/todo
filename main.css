@@ -74,6 +74,9 @@ nav i {
 .nav-link {
   padding: 5px 10px;
 }
+.nav-link.add-todo {
+  padding-right: 0;
+}
 
 .list-menu-items {
   display: flex;
