@@ -121,7 +121,10 @@ nav i {
   }
 }
 .todo {
-  padding: 25px 15px;
+  padding: 15px 20px;
+}
+.todo:not(:last-child) {
+  margin-bottom: 5px;
 }
 .todo__name {
   font-size: 26px;
@@ -146,12 +149,16 @@ nav i {
   position: absolute;
   top: 100%;
   right: 0;
+  width: 130px;
   height: 0;
   overflow: hidden;
   transition: 300ms;
 }
+.todo .menu-list .btn {
+  border-radius: 0;
+}
 .todo .show-menu {
-  height: 60px;
+  height: 90px;
 }
 
 .menu-toggle {
@@ -172,6 +179,11 @@ nav i {
 
 .priority-3 {
   border-left: 10px solid #DAF7A6;
+}
+
+.completed {
+  border-left: none;
+  background-color: rgba(152, 251, 152, 0.8);
 }
 
 .screen {
@@ -283,7 +295,7 @@ nav i {
   margin-bottom: 20px;
   color: crimson;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .input:focus {
