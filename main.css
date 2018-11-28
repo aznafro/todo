@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Black+Han+Sans);
 *,
 *::before,
 *::after {
@@ -12,10 +13,16 @@ html, body {
 
 body {
   overflow: hidden;
+  font-family: "Black Han Sans";
 }
 
 ul {
   list-style: none;
+}
+
+a {
+  display: inline-block;
+  width: 100%;
 }
 
 nav {
@@ -59,7 +66,6 @@ nav .menu-list {
 }
 
 .nav-link {
-  display: inline-block;
   padding: 5px 10px;
 }
 
@@ -83,7 +89,7 @@ nav .menu-list {
     position: static;
     transform: unset;
     font-size: 32px;
-    margin-bottom: 20px;
+    padding: 20px 0;
   }
 
   .nav-list {
@@ -98,16 +104,14 @@ nav .menu-list {
   }
 
   .nav-link {
-    width: 100%;
     padding: 15px 0;
     border-bottom: 1px solid white;
   }
 }
 .todo {
   padding: 25px 15px;
-}
-.todo__list-item {
-  border-bottom: 1px solid white;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .todo .menu-box {
   position: relative;
@@ -122,29 +126,23 @@ nav .menu-list {
   overflow: hidden;
   transition: 300ms;
 }
+.todo .menu-list__item {
+  color: white;
+  background-color: crimson;
+  padding: 8px 14px;
+}
+.todo .menu-list__item:hover {
+  cursor: pointer;
+}
 .todo .show-menu {
   height: 60px;
 }
 
+.menu-toggle {
+  font-size: 24px;
+}
 .menu-toggle:hover {
   cursor: pointer;
-}
-
-.list-item {
-  width: 100%;
-  background-color: lightgray;
-}
-.list-item:not(:last-child) {
-  border-bottom: 1px solid gray;
-}
-.list-item:hover {
-  cursor: pointer;
-}
-
-.list-link {
-  width: 100%;
-  display: inline-block;
-  padding: 5px 10px;
 }
 
 .priority-1 {
@@ -182,10 +180,11 @@ nav .menu-list {
   border-radius: 3px;
   border: 1px solid crimson;
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 400px;
+  max-width: 95%;
   z-index: -1;
   transition: visibility, opacity, top 300ms;
   color: crimson;
@@ -193,6 +192,7 @@ nav .menu-list {
   z-index: 5;
   visibility: hidden;
   opacity: 0;
+  backface-visibility: hidden;
 }
 
 .choose-icon__form {
@@ -202,6 +202,7 @@ nav .menu-list {
   height: 0;
   transition: 300ms;
   border-radius: 3px;
+  overflow: hidden;
 }
 .choose-icon__form .choose-icon__header {
   text-align: center;
@@ -228,8 +229,8 @@ nav .menu-list {
 	Inner Elements Level
 **************************/
 [class$=__header] {
-  margin-bottom: 5px;
-  font-size: 24px;
+  padding: 10px 0;
+  font-size: 32px;
 }
 
 .display-icon__box {
@@ -254,6 +255,9 @@ nav .menu-list {
   padding: 5px 10px;
   border-radius: 3px;
   margin-bottom: 20px;
+  color: crimson;
+  font-family: inherit;
+  font-size: 18px;
 }
 
 .input:focus {
@@ -261,12 +265,14 @@ nav .menu-list {
 }
 
 .btn {
+  font-size: 18px;
   width: 100%;
   border: none;
   border-radius: 3px;
-  padding: 8px 12px;
+  padding: 10px 18px;
   color: white;
   background-color: crimson;
+  font-family: inherit;
 }
 .btn.btn__choose-icon {
   width: unset;
@@ -288,6 +294,33 @@ nav .menu-list {
 /**
 	Animations
 *************************/
+@keyframes showAddTodoForm {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes hideForm {
+  0% {
+    visibility: visible;
+    top: 50%;
+    opacity: 1;
+  }
+  95% {
+    top: 35%;
+    opacity: 0;
+  }
+  100% {
+    top: 35%;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 @keyframes showForm {
   0% {
     visibility: visible;
@@ -315,59 +348,6 @@ nav .menu-list {
     visibility: hidden;
   }
 }
-[class^=projects__] .project__name {
-  font-size: 13px;
-}
-[class^=projects__] .project__icon-face {
-  margin: 0 auto;
-  text-align: center;
-}
-[class^=projects__] .project__icon-face i {
-  padding: 20px 25px;
-  border-radius: 20px;
-  background-color: crimson;
-  color: white;
-  margin-bottom: 5px;
-}
-[class^=projects__] .project__icon-face:hover {
-  cursor: pointer;
-}
-[class^=projects__] .project__list-face {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: -1;
-  background-color: white;
-  transition: 300ms;
-}
-[class^=projects__] .project__list-face .project__name {
-  font-size: 48px;
-  padding: 25px;
-}
-[class^=projects__] .project__list-face .todo__name {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-[class^=projects__] .project__list-face .todo__duedate {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-size: 13px;
-  color: gray;
-}
-[class^=projects__] .project__list-face .todo__desc {
-  font-size: 18px;
-}
-[class^=projects__] .show-list {
-  opacity: 1;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-}
-
 .projects__icons {
   position: absolute;
   width: 100%;
@@ -376,6 +356,60 @@ nav .menu-list {
   padding: 20px 15px;
   z-index: 1;
   transition: 0.5s;
+}
+.projects__icons .project__icon-face {
+  margin: 0 auto;
+  text-align: center;
+}
+.projects__icons .project__icon-face i {
+  padding: 20px 25px;
+  border-radius: 20px;
+  background-color: crimson;
+  color: white;
+  margin-bottom: 5px;
+}
+.projects__icons .project__icon-face:hover {
+  cursor: pointer;
+}
+.projects__icons .project__name {
+  color: crimson;
+}
+.projects__lists .project__name {
+  color: crimson;
+}
+.projects__lists .project__list-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  background-color: white;
+  transition: 300ms;
+}
+.projects__lists .project__list-face .todo__name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.projects__lists .project__list-face .todo__duedate {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: gray;
+}
+.projects__lists .project__list-face .todo__desc {
+  font-size: 18px;
+}
+.projects__lists .project__name {
+  font-size: 48px;
+  padding: 25px;
+}
+.projects__lists .show-list {
+  opacity: 1;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
 }
 
 .row {
