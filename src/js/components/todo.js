@@ -8,7 +8,7 @@ function createTodo(todo) {
 						 	"<i class=\"fas fa-ellipsis-v menu-toggle\"></i>" +
 						 	"<ul class=\"menu-list\">" +
 						 		"<li class=\"menu-list__item\">" +
-						 			"<a class=\"menu-list__link delete-todo\">Delete</a>" +
+						 			"<a class=\"btn delete-todo\">Delete</a>" +
 						 		"</li>" +
 						 	"</ul>" +
 						 "</div>" + 

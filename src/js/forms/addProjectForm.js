@@ -1,9 +1,10 @@
 import { addNewProject } from "../sections/projects.js";
+import { hideForm } from "./formFunctions.js";
 
-function hideForm(container) {
+function resetForm(container) {
 	container.querySelector("#new-project__name").value = "";
 	container.querySelector(".icon-display i").className = "fas fa-sticky-note";
-	container.style.animation = "300ms hideForm ease-out forwards";
+	hideForm(container);
 }
 
 function initAddProjectForm() {
@@ -80,12 +81,12 @@ function initAddProjectForm() {
 			todos: []
 		}, true);
 
-		hideForm(newProjectContainer);
+		resetForm(newProjectContainer);
 	});
 
 	// cancel add new project
 	newProjectContainer.querySelector(".btn__cancel-project").addEventListener("click", function() {
-		hideForm(newProjectContainer);
+		resetForm(newProjectContainer);
 	});
 
 	document.querySelector(".container").appendChild(newProjectContainer);

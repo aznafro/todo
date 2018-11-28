@@ -6,3 +6,11 @@
 	visibility: visible;
 	opacity: 1;
 }
+
+.fade {
+	visibility: hidden;
+}
+
+.blur {
+	filter: blur(2px);
+}

@@ -6,6 +6,7 @@ function showForm(form) {
 	} else {
 		form.style.animation = "300ms showForm ease-in-out forwards";
 	}
+	document.querySelector(".contents-container").classList.add("blur");
 }
 
 function hideForm(form) {
@@ -14,6 +15,7 @@ function hideForm(form) {
 	} else {
 		form.style.animation = "300ms hideForm ease-in-out forwards";
 	}
+	document.querySelector(".contents-container").classList.remove("blur");
 }
 
 function updateCurrentListUI() {

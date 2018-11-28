@@ -1,7 +1,23 @@
 .todo {
 	padding: 25px 15px;
-	margin-left: $h-gutter-width;
-	margin-right: $h-gutter-width;
+
+	&__name {
+		font-size: 26px;
+		margin-bottom: 10px;
+		color: $secondary-color;
+	}
+
+	&__duedate {
+		display: inline-block;
+		margin-bottom: 5px;
+		font-size: 16px;
+		color: $white;
+	}
+
+	&__desc {
+		font-size: 24px;
+		color: $secondary-color;
+	}
 
 	.menu-box {
 		position: relative;
@@ -12,20 +28,9 @@
 		position: absolute;
 		top: 100%;
 		right: 0;
-		width: 80px;
 		height: 0;
 		overflow: hidden;
 		transition: $transition-short;
-
-		&__item {
-			color: $white;
-			background-color: $main-color;
-			padding: 8px 14px;
-
-			&:hover {
-				cursor: pointer;
-			}
-		}
 	}
 
 	.show-menu {
@@ -35,42 +40,22 @@
 
 .menu-toggle {
 	font-size: 24px;
-	color: gray;
+	color: $white;
 
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-// .list-item {
-// 	width: 100%;
-// 	background-color: $main-color;
-// 	color: $white;
-
-// 	&:not(:last-child) {
-// 		border-bottom: 1px solid gray;
-// 	}
-
-// 	&:hover {
-// 		cursor: pointer;
-// 	}
-// }
-
-// .list-link {
-// 	width: 100%;
-// 	display: inline-block;
-// 	padding: 5px 10px;
-// }
-
 .priority-1 {
-	@include priority($main-color);
+	@include priority(#900C3F);
 }
 
  
 .priority-2 { 
-	@include priority(yellow);
+	@include priority(#FFC300);
 }
 
 .priority-3 {
-	@include priority(green);
+	@include priority(#DAF7A6);
 }

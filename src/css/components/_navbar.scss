@@ -1,16 +1,21 @@
 nav {
-	background-color: $main-color;
-	color: $text-color;
-	z-index: 2;
-
-	position: relative;
-	padding: 5px 15px;
+	position: fixed;
+	width: 100%;
+	z-index: 3;
+	background-color: transparent;
+	color: $white;
+	padding: 10px 15px;
 
 	.menu-list {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+		height: 100%;
+	}
+
+	i {
+		font-size: 26px;
 	}
 }
 
@@ -21,6 +26,7 @@ nav {
 	top: 50%;
 	text-align: center;
 	z-index: -1;
+	font-size: 48px;
 	transform: translate(-50%, -50%);
 }
 
@@ -51,9 +57,18 @@ nav {
 
 @media only screen and (min-width: 768px) {
 	nav {
-		order: 2;
-		flex-basis: 25%;
+		right: 0;
+		width: unset;
 		height: 100%;
+		padding: 10px 30px;
+
+		.menu-list {
+			height: unset;
+		}
+
+		i {
+			margin-right: 10px;
+		}
 	}
 
 	.menu-list,
@@ -64,7 +79,6 @@ nav {
 	.logo {
 		position: static;
 		transform: unset;
-		font-size: 32px;
 		padding: 20px 0;
 	}
 

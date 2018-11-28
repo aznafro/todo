@@ -1,6 +1,6 @@
-import { updateCurrentListUI } from "./formFunctions.js";
+import { updateCurrentListUI, hideForm } from "./formFunctions.js";
 
-function hideForm(form) {
+function resetForm(form) {
 	let nameInput = form.querySelector(".new-todo__name");
 	let radio = Array.prototype.slice.call(form.querySelectorAll("[name=\"priority\"]")).filter(function(radio) {
 					return radio.checked == true;
@@ -16,7 +16,7 @@ function hideForm(form) {
 	defaultRadio.checked = true;
 	descInput.value = "";
 	dateInput.value = "";
-	form.style.animation = "300ms hideForm ease-in-out forwards";
+	hideForm(form);
 }
 
 function initAddTodoForm() {
@@ -122,12 +122,12 @@ function initAddTodoForm() {
 		updateCurrentListUI();
 
 		// close form
-		hideForm(addTodoForm);
+		resetForm(addTodoForm);
 	});
 
 	// cancel
 	cancelItemButton.addEventListener("click", function() {
-		hideForm(addTodoForm);
+		resetForm(addTodoForm);
 	});
 
 	document.querySelector(".container").appendChild(addTodoForm);

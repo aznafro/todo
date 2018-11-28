@@ -1,4 +1,3 @@
-import initScreen from "../components/screen.js";
 import initAddProjectForm from "../forms/addProjectForm.js";
 import { initRemoveProjectForm } from "../forms/removeProjectForm.js";
 import initAddTodoForm from "../forms/addTodoForm.js";
@@ -12,8 +11,6 @@ let iconsRow;
 let listsRow;
 
 function home() {
-	// init black screen
-	initScreen();
 
 	// init forms
 	initAddProjectForm();

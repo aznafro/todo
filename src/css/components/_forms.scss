@@ -55,8 +55,8 @@
 		text-align: center;
 	}
 
-	&__header {
-		margin-bottom: 10px;
+	&__text {
+		font-size: 27px;
 	}
 }
 
@@ -89,6 +89,7 @@
 
 .label {
 	color: $main-color;
+	font-size: $form-label-font-size;
 }
 
 .input {
@@ -108,12 +109,12 @@
 }
 
 .btn {
-	font-size: 18px;
+	font-size: $form-label-font-size;
 	width: 100%;
 	border: none;
 	border-radius: 3px;
-	padding: 10px 18px;
-	color: $text-color;
+	padding: 6px 18px;
+	color: $white;
 	background-color: $main-color;
 	font-family: inherit;
 

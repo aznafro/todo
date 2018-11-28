@@ -6,9 +6,8 @@
 		width: 100%;
 		top: 0;
 		left: 0;
-		padding: $v-gutter-width $h-gutter-width;
+		padding: calc(3 * #{$v-gutter-width}) $h-gutter-width;
 		z-index: 1;
-		transition: .5s;
 
 		.project {
 
@@ -17,10 +16,11 @@
 				text-align: center;
 
 				i {
+					font-size: 24px;
 					padding: $v-icon-padding $h-icon-padding;
-					border-radius: 20px;
+					border-radius: 10px;
 					background-color: $main-color;
-					color: $text-color;
+					color: $white;
 					margin-bottom: 5px;
 				}
 
@@ -30,7 +30,7 @@
 			}
 
 			&__name {
-				color: $main-color;
+				color: $white;
 			}
 		}
 
@@ -42,7 +42,14 @@
 		.project {
 
 			&__name {
-				color: $main-color;
+				color: $white;
+				font-size: 48px;
+				padding: 5px 5%;
+				border-left: 7px solid $white;
+				border-bottom: 2px solid $white;
+				width: 70%;
+				margin-left: 5%;
+				margin-bottom: 30px;
 			}
 
 			&__list-face {
@@ -53,35 +60,10 @@
 				width: 0;
 				height: 0;
 				opacity: 0;
-				background-color: $white;
+				padding-top: 80px;
+				background-color: transparent;
 				transition: $transition-short;
 
-				.todo {
-
-					&__name {
-						font-size: 24px;
-						margin-bottom: 10px;
-						color: $secondary-color;
-					}
-
-					&__duedate {
-						display: inline-block;
-						margin-bottom: 5px;
-						font-size: 13px;
-						color: gray;
-					}
-
-					&__desc {
-						font-size: 18px;
-						color: $secondary-color;
-					}
-				}
-
-			}
-
-			&__name {
-				font-size: 48px;
-				padding: 25px;
 			}
 		}
 
@@ -93,4 +75,23 @@
 		}
 	}
 
+}
+
+@media only screen and (min-width: 768px) {
+	.projects {
+
+		&__lists {
+
+			.project {
+
+				&__name {
+					padding: 25px 5%;
+				}
+
+				&__list-face {
+					padding-top: 40px;
+				}
+			}
+		}
+	}
 }

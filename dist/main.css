@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Black+Han+Sans);
+@import url(https://fonts.googleapis.com/css?family=Ranga:400,700);
 *,
 *::before,
 *::after {
@@ -13,7 +13,7 @@ html, body {
 
 body {
   overflow: hidden;
-  font-family: "Black Han Sans";
+  font-family: "Ranga";
 }
 
 ul {
@@ -26,17 +26,22 @@ a {
 }
 
 nav {
-  background-color: crimson;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  background-color: transparent;
   color: white;
-  z-index: 2;
-  position: relative;
-  padding: 5px 15px;
+  padding: 10px 15px;
 }
 nav .menu-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 100%;
+}
+nav i {
+  font-size: 26px;
 }
 
 .logo {
@@ -46,6 +51,7 @@ nav .menu-list {
   top: 50%;
   text-align: center;
   z-index: -1;
+  font-size: 48px;
   transform: translate(-50%, -50%);
 }
 
@@ -75,9 +81,16 @@ nav .menu-list {
 
 @media only screen and (min-width: 768px) {
   nav {
-    order: 2;
-    flex-basis: 25%;
+    right: 0;
+    width: unset;
     height: 100%;
+    padding: 10px 30px;
+  }
+  nav .menu-list {
+    height: unset;
+  }
+  nav i {
+    margin-right: 10px;
   }
 
   .menu-list,
@@ -88,7 +101,6 @@ nav .menu-list {
   .logo {
     position: static;
     transform: unset;
-    font-size: 32px;
     padding: 20px 0;
   }
 
@@ -110,8 +122,21 @@ nav .menu-list {
 }
 .todo {
   padding: 25px 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+}
+.todo__name {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: wheat;
+}
+.todo__duedate {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: white;
+}
+.todo__desc {
+  font-size: 24px;
+  color: wheat;
 }
 .todo .menu-box {
   position: relative;
@@ -121,18 +146,9 @@ nav .menu-list {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 80px;
   height: 0;
   overflow: hidden;
   transition: 300ms;
-}
-.todo .menu-list__item {
-  color: white;
-  background-color: crimson;
-  padding: 8px 14px;
-}
-.todo .menu-list__item:hover {
-  cursor: pointer;
 }
 .todo .show-menu {
   height: 60px;
@@ -140,22 +156,22 @@ nav .menu-list {
 
 .menu-toggle {
   font-size: 24px;
-  color: gray;
+  color: white;
 }
 .menu-toggle:hover {
   cursor: pointer;
 }
 
 .priority-1 {
-  border-left: 10px solid crimson;
+  border-left: 10px solid #900C3F;
 }
 
 .priority-2 {
-  border-left: 10px solid yellow;
+  border-left: 10px solid #FFC300;
 }
 
 .priority-3 {
-  border-left: 10px solid green;
+  border-left: 10px solid #DAF7A6;
 }
 
 .screen {
@@ -223,8 +239,8 @@ nav .menu-list {
 .confirm-remove-project__form {
   text-align: center;
 }
-.confirm-remove-project__header {
-  margin-bottom: 10px;
+.confirm-remove-project__text {
+  font-size: 27px;
 }
 
 .show-choose-icon {
@@ -255,6 +271,7 @@ nav .menu-list {
 
 .label {
   color: crimson;
+  font-size: 22px;
 }
 
 .input {
@@ -274,11 +291,11 @@ nav .menu-list {
 }
 
 .btn {
-  font-size: 18px;
+  font-size: 22px;
   width: 100%;
   border: none;
   border-radius: 3px;
-  padding: 10px 18px;
+  padding: 6px 18px;
   color: white;
   background-color: crimson;
   font-family: inherit;
@@ -363,17 +380,17 @@ nav .menu-list {
   width: 100%;
   top: 0;
   left: 0;
-  padding: 20px 15px;
+  padding: calc(3 * 20px) 15px;
   z-index: 1;
-  transition: 0.5s;
 }
 .projects__icons .project__icon-face {
   margin: 0 auto;
   text-align: center;
 }
 .projects__icons .project__icon-face i {
+  font-size: 24px;
   padding: 20px 25px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: crimson;
   color: white;
   margin-bottom: 5px;
@@ -382,10 +399,17 @@ nav .menu-list {
   cursor: pointer;
 }
 .projects__icons .project__name {
-  color: crimson;
+  color: white;
 }
 .projects__lists .project__name {
-  color: crimson;
+  color: white;
+  font-size: 48px;
+  padding: 5px 5%;
+  border-left: 7px solid white;
+  border-bottom: 2px solid white;
+  width: 70%;
+  margin-left: 5%;
+  margin-bottom: 30px;
 }
 .projects__lists .project__list-face {
   position: absolute;
@@ -395,27 +419,9 @@ nav .menu-list {
   width: 0;
   height: 0;
   opacity: 0;
-  background-color: white;
+  padding-top: 80px;
+  background-color: transparent;
   transition: 300ms;
-}
-.projects__lists .project__list-face .todo__name {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: rgba(220, 20, 60, 0.8);
-}
-.projects__lists .project__list-face .todo__duedate {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-size: 13px;
-  color: gray;
-}
-.projects__lists .project__list-face .todo__desc {
-  font-size: 18px;
-  color: rgba(220, 20, 60, 0.8);
-}
-.projects__lists .project__name {
-  font-size: 48px;
-  padding: 25px;
 }
 .projects__lists .show-list {
   opacity: 1;
@@ -424,6 +430,14 @@ nav .menu-list {
   height: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+  .projects__lists .project__name {
+    padding: 25px 5%;
+  }
+  .projects__lists .project__list-face {
+    padding-top: 40px;
+  }
+}
 .row {
   display: flex;
   flex-direction: row;
@@ -461,8 +475,12 @@ nav .menu-list {
 
 .projects-container {
   position: relative;
-  flex-basis: 90%;
+  height: 100%;
   padding: 20px 15px;
+  background-image: url(images/bg-sm.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .slide-over {
@@ -470,25 +488,20 @@ nav .menu-list {
 }
 
 .contents-container {
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
 .todos-container {
   overflow-y: auto;
-  height: 100%;
+  height: 75%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 @media only screen and (min-width: 768px) {
-  .contents-container {
-    flex-direction: row;
-  }
-
-  .projects-container {
-    order: 1;
-    flex-basis: 80%;
-    height: 100%;
+  .todos-container {
+    width: 70%;
+    height: 70%;
   }
 }
 .hidden {
@@ -498,6 +511,14 @@ nav .menu-list {
 .show {
   visibility: visible;
   opacity: 1;
+}
+
+.fade {
+  visibility: hidden;
+}
+
+.blur {
+  filter: blur(2px);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -6,9 +6,13 @@
 
 .projects-container {
 	position: relative;
-	// height: calc(100% - #{$navbar-height});
-	flex-basis: 90%;
+	height: 100%;
 	padding: $v-gutter-width $h-gutter-width;
+
+	background-image: url(images/bg-sm.jpg);
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .slide-over {
@@ -16,24 +20,19 @@
 }
 
 .contents-container {
-	display: flex;
-	flex-direction: column;
 	height: 100%;
 }
 
 .todos-container {
 	overflow-y: auto;
-	height: 100%;
+	height: 75%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 @media only screen and (min-width: 768px) {
-	.contents-container {
-		flex-direction: row;
-	}
-
-	.projects-container {
-		order: 1;
-		flex-basis: 80%;
-		height: 100%;
+	.todos-container {
+		width: 70%;
+		height: 70%;
 	}
 }
