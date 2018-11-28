@@ -16,8 +16,6 @@ function initNavbar() {
 				    	"</li>" +
 				    	"<li class=\"nav-item list-menu-items hidden\">" +
 					    	"<a class=\"nav-link add-todo\"><i class=\"fas fa-plus\"></i> <span>Add Item</span></a>" +
-					    "</li>" +
-					    "<li class=\"nav-item list-menu-items hidden\">" + 
 					    	"<a class=\"nav-link remove-project\"><i class=\"fas fa-folder-minus\"></i> <span>Delete Project</span></a>" +
 					    "</li>" +
 				    "</ul>";
@@ -31,7 +29,7 @@ function initNavbar() {
 	let newProjectContainer = document.querySelector(".new-project__form");
 	let confirmRemoveProjectContainer = document.querySelector(".confirm-remove-project__form");
 	let addTodoContainer = document.querySelector(".add-todo__form");
-	let listMenuItems = nav.querySelectorAll(".list-menu-items");
+	let listMenuItems = nav.querySelector(".list-menu-items");
 
 	nav.querySelector(".back").addEventListener("click", function() {
 
@@ -46,9 +44,7 @@ function initNavbar() {
 
 		// show/hide buttons
 		this.classList.remove("show");
-		listMenuItems.forEach(function(item) {
-			item.classList.add("hidden");
-		});
+		listMenuItems.classList.add("hidden");
 		addProjectButton.classList.remove("hidden");
 	});
 

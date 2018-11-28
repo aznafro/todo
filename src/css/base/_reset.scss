@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Black+Han+Sans);
+
 *,
 *::before,
 *::after {
@@ -12,8 +14,14 @@ html, body {
 
 body {
 	overflow: hidden;
+	font-family: "Black Han Sans";
 }
 
 ul {
 	list-style: none;
+}
+
+a {
+	display: inline-block;
+	width: 100%;
 }

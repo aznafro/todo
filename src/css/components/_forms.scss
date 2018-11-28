@@ -7,16 +7,18 @@
 	border-radius: 3px;
 	border: 1px solid $main-color;
 	position: absolute;
-	top: 35%;
+	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 300px;
+	width: 400px;
+	max-width: 95%;
 	z-index: -1;
 	transition: visibility, opacity, top $transition-short;
 	color: $main-color;
 	padding: 20px;
 	z-index: 5;
 	@include faded;
+	backface-visibility: hidden;
 }
 
 .choose-icon__form {
@@ -26,6 +28,7 @@
 	height: 0;
 	transition: $transition-short;
 	border-radius: 3px;
+	overflow: hidden;
 
 	.choose-icon__header {
 		text-align: center;
@@ -57,8 +60,8 @@
 **************************/
 
 [class$="__header"] {
-	margin-bottom: 5px;
-	font-size: 24px;
+	padding: 10px 0;
+	font-size: 32px;
 }
 
 [class$="__text"] {
@@ -86,6 +89,9 @@
     padding: 5px 10px;
     border-radius: 3px;
     margin-bottom: $v-gutter-width;
+ 	color: $main-color;
+	font-family: inherit;
+	font-size: 18px;
 }
 
 .input:focus {
@@ -93,12 +99,14 @@
 }
 
 .btn {
+	font-size: 18px;
 	width: 100%;
 	border: none;
 	border-radius: 3px;
-	padding: 8px 12px;
+	padding: 10px 18px;
 	color: $text-color;
 	background-color: $main-color;
+	font-family: inherit;
 
 	&.btn__choose-icon {
 		width: unset;
@@ -123,6 +131,38 @@
 /**
 	Animations
 *************************/
+@keyframes showAddTodoForm {
+	0% {
+		visibility: visible;
+		opacity: 0;
+	}
+
+	100% {
+		top: 50%;
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes hideForm {
+	0% {
+		visibility: visible;
+		top: 50%;
+		opacity: 1;
+	}
+
+	95% {
+		top: 35%;
+		opacity: 0;
+	}
+
+	100% {
+		top: 35%;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
 @keyframes showForm {
 	0% {
 		visibility: visible;

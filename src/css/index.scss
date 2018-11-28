@@ -1,16 +1,16 @@
-@import "base/reset";
 @import "base/variables"; 
+@import "base/reset"; 
 
 @import "util/mixins"; 
-
+ 
 @import "components/navbar";
 @import "components/todo";
 @import "components/screen"; 
 @import "components/forms";  
- 
+      
 @import "sections/projects"; 
 
-@import "layout/grid"; 
-@import "layout/container";
-
-@import "util/classes";    
+@import "layout/grid";  
+@import "layout/container";   
+ 
+@import "util/classes";         

@@ -34,7 +34,7 @@ function initRemoveProjectForm() {
 	confirmRemoveProjectForm.classList.add("confirm-remove-project__form");
 
 	confirmRemoveProjectForm.innerHTML = "<h3 class=\"confirm-remove-project__header\">Confirm Remove Project</h3>" +
-									   "<p class=\"confirm-remove-project__text\">Are you sure you want to remove project: '<span class=\"confirm-remove-project__name\">" + "</span>'?</p>" +
+									   "<p class=\"confirm-remove-project__text\">Are you sure you want to remove project '<span class=\"confirm-remove-project__name\">" + "</span>'?</p>" +
 									   "<div class=\"row\">" +
 									   		"<div class=\"col-1-2\">" +
 									   			"<button class=\"btn btn__confirm-remove\">Yes</button>" +

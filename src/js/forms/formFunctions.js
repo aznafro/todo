@@ -1,11 +1,19 @@
 import createTodo from "../components/todo.js";
 
 function showForm(form) {
-	form.style.animation = "300ms showForm ease-in-out forwards";
+	if(form.className.indexOf("add-todo") != -1) {
+		form.style.animation = "300ms showAddTodoForm ease-in-out forwards";
+	} else {
+		form.style.animation = "300ms showForm ease-in-out forwards";
+	}
 }
 
-function hideForm(container) {
-	container.style.animation = "300ms hideForm ease-out forwards";
+function hideForm(form) {
+	if(form.className.indexOf("add-todo") != -1) {
+		form.style.animation = "300ms hideAddTodoForm ease-in-out forwards";
+	} else {
+		form.style.animation = "300ms hideForm ease-in-out forwards";
+	}
 }
 
 function updateCurrentListUI() {

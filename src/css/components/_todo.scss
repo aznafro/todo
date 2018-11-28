@@ -1,9 +1,7 @@
 .todo {
 	padding: 25px 15px;
-
-	&__list-item {
-		border-bottom: 1px solid white;
-	}
+	margin-left: $h-gutter-width;
+	margin-right: $h-gutter-width;
 
 	.menu-box {
 		position: relative;
@@ -18,6 +16,16 @@
 		height: 0;
 		overflow: hidden;
 		transition: $transition-short;
+
+		&__item {
+			color: $white;
+			background-color: $main-color;
+			padding: 8px 14px;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 
 	.show-menu {
@@ -25,28 +33,33 @@
 	}
 }
 
-.menu-toggle:hover {
-	cursor: pointer;
-}
-
-.list-item {
-	width: 100%;
-	background-color: lightgray;
-
-	&:not(:last-child) {
-		border-bottom: 1px solid gray;
-	}
+.menu-toggle {
+	font-size: 24px;
 
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-.list-link {
-	width: 100%;
-	display: inline-block;
-	padding: 5px 10px;
-}
+// .list-item {
+// 	width: 100%;
+// 	background-color: $main-color;
+// 	color: $white;
+
+// 	&:not(:last-child) {
+// 		border-bottom: 1px solid gray;
+// 	}
+
+// 	&:hover {
+// 		cursor: pointer;
+// 	}
+// }
+
+// .list-link {
+// 	width: 100%;
+// 	display: inline-block;
+// 	padding: 5px 10px;
+// }
 
 .priority-1 {
 	@include priority($main-color);
