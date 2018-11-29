@@ -49,14 +49,24 @@
 	}
 }
 
-.confirm-remove-project {
+.confirm-remove- {
 	
-	&__form {
-		text-align: center;
+	&project {
+
+		&__form {
+			text-align: center;
+		}
+
+		&__text {
+			font-size: $form-font-size;
+		}
 	}
 
-	&__text {
-		font-size: 27px;
+	&todo {
+
+		&__text {
+			font-size: $form-font-size;
+		}
 	}
 }
 
@@ -88,7 +98,7 @@
 
 .label {
 	color: $main-color;
-	font-size: $form-label-font-size;
+	font-size: $form-font-size;
 }
 
 .input {
@@ -100,7 +110,7 @@
     margin-bottom: $v-gutter-width;
  	color: $main-color;
 	font-family: inherit;
-	font-size: $form-label-font-size;
+	font-size: $form-font-size;
 }
 
 .input:focus {
@@ -108,7 +118,7 @@
 }
 
 .btn {
-	font-size: $form-label-font-size;
+	font-size: $form-font-size;
 	width: 100%;
 	border: none;
 	border-radius: 3px;
