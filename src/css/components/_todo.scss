@@ -69,7 +69,7 @@
 }
 
 .completed {
-	border-left: none;
+	border-left: 0px solid transparent;
 	background-color: $completed;
 }
 
