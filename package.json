@@ -10,6 +10,7 @@
     "start:dev": "webpack-dev-server",
     "start": "node app.js"
   },
+  "eslintConfig" : {},
   "keywords": [],
   "author": "",
   "license": "ISC",

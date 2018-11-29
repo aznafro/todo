@@ -1,9 +1,11 @@
+"use strict";
+
 import { updateCurrentListUI, hideForm } from "./formFunctions.js";
 
 function resetForm(form) {
 	let nameInput = form.querySelector(".new-todo__name");
 	let radio = Array.prototype.slice.call(form.querySelectorAll("[name=\"priority\"]")).filter(function(radio) {
-					return radio.checked == true;
+					return radio.checked === true;
 				})[0];
 	let defaultRadio = form.querySelector("#low-priority");
 	let descInput = form.querySelector(".new-todo__desc");
@@ -75,7 +77,7 @@ function initAddTodoForm() {
 		}
 
 		let priority = Array.prototype.slice.call(addTodoForm.querySelectorAll("[name=\"priority\"]")).filter(function(radio) {
-						return radio.checked == true;
+						return radio.checked === true;
 					})[0].value;
 		let desc = addTodoForm.querySelector(".new-todo__desc").value;
 		let date = addTodoForm.querySelector("#new-todo__date").value;
@@ -103,7 +105,7 @@ function initAddTodoForm() {
 		}
 
 		// update local storage
-		if(todosList.length == 0) {
+		if(todosList.length === 0) {
 			todosList.push(newTodo);
 		} else {
 			// insertion sort todo items on push based on priority

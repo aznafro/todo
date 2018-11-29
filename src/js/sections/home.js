@@ -1,14 +1,11 @@
+"use strict";
+
 import initAddProjectForm from "../forms/addProjectForm.js";
 import { initRemoveProjectForm } from "../forms/removeProjectForm.js";
 import initAddTodoForm from "../forms/addTodoForm.js";
 import { initRemoveTodoForm } from "../forms/removeTodoForm.js";
 import initNavbar from "../components/navbar.js";
 import { initProjects } from "./projects.js";
-
-// these rows are initialized when the projects are initialized
-// then re-accessed when new projects are added
-let iconsRow;
-let listsRow;
 
 function home() {
 

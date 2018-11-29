@@ -1,5 +1,5 @@
-import { removeTodo } from "../forms/removeTodoForm.js";
-import { showForm } from "../forms/formFunctions.js";
+'use strict';
+
 import createTodo from "./todo.js";
 
 function createIconFace(name, icon) {
@@ -50,6 +50,5 @@ function createListFace(name, todos) {
 
 export {
 	createIconFace,
-	createListFace,
-	addTodo
+	createListFace
 };

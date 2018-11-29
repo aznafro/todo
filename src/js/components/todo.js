@@ -1,3 +1,5 @@
+"use strict";
+
 import { showForm, hideForm } from "../forms/formFunctions";
 
 function createTodo(todo) {

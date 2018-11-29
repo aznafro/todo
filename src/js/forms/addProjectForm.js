@@ -1,3 +1,5 @@
+"use strict";
+
 import { addNewProject } from "../sections/projects.js";
 import { hideForm } from "./formFunctions.js";
 

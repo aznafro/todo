@@ -1,3 +1,5 @@
+"use strict";
+
 import createTodo from "../components/todo.js";
 
 function showForm(form) {
@@ -34,4 +36,4 @@ export {
 	showForm,
 	hideForm,
 	updateCurrentListUI
-}
+};

@@ -1,3 +1,5 @@
+"use strict";
+
 import { hideForm } from "./formFunctions.js";
  
 const PROJECT_NAMES = "PROJECT_NAMES";
@@ -60,4 +62,4 @@ function initRemoveProjectForm() {
 export { 
 	removeProject, 
 	initRemoveProjectForm
-}
+};

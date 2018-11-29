@@ -1,3 +1,5 @@
+"use strict";
+
 import { updateCurrentListUI, hideForm } from "./formFunctions.js";
 
 function removeTodo(itemName, container) {
@@ -56,4 +58,4 @@ function initRemoveTodoForm() {
 export { 
 	removeTodo, 
 	initRemoveTodoForm
-}
+};

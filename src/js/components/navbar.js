@@ -1,4 +1,5 @@
-import removeProject from "../forms/removeProjectForm.js";
+"use strict";
+
 import { showForm, hideForm } from "../forms/formFunctions.js";
 
 function initNavbar() {
