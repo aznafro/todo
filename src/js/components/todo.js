@@ -60,7 +60,7 @@ function createTodo(todo) {
 	});
 
 	// mark as complete
-	let completed = false;
+	let completed = todo.completed;
 	listItem.querySelector(".complete-todo").addEventListener("click", function() {
 		listItem.classList.toggle("completed");
 		completed = !completed;
@@ -72,7 +72,7 @@ function createTodo(todo) {
 		let currentList = projectObj.todos;
 		for(let i=0; i < currentList.length; i++) {
 			if(currentList[i].name == todo.name) {
-				currentList[i].completed = true;
+				currentList[i].completed = completed;
 				break;
 			}
 		}
