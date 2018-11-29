@@ -1,5 +1,6 @@
 .todo {
 	padding: 15px 20px;
+	transition: $transition-short;
 
 	&:not(:last-child) {
 		margin-bottom: 5px;
